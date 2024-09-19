@@ -9,7 +9,7 @@
 <body class="bg-gray-100">
 
   <div class="max-w-3xl mx-auto py-10 px-6">
-  <div class=" text-right">
+    <div class=" text-right">
       <a
         href="/" 
         class="bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 font-semibold transition ease-in-out duration-150"
@@ -20,14 +20,11 @@
 
     <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Create Blog</h1>
     
-
     @if (session('status'))
     <div class="bg-green-100 text-green-700 px-4 py-2 rounded-lg mb-6">
         {{ session('status') }}
     </div>
-@endif
-
-
+    @endif
 
     <form class="bg-white p-8 rounded-lg shadow-lg" action="store" method="POST" enctype="multipart/form-data">
       @csrf
@@ -36,6 +33,7 @@
       <div class="mb-6">
         <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Blog Title</label>
         <input
+        value="{{$blogpost->title}}"
           type="text"
           id="title"
           name="title"
@@ -56,7 +54,7 @@
           rows="6"
           class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Write your blog content here..."
-        ></textarea>
+        >{{$blogpost->body}}</textarea>
         @error('body')
           <span class="text-red-500 text-sm">{{ $message }}</span>
         @enderror
@@ -75,6 +73,13 @@
         @error('image')
           <span class="text-red-500 text-sm">{{ $message }}</span>
         @enderror
+
+        <!-- Display existing image -->
+        @if ($blogpost->image)
+        <div class="mt-4">
+          <img src="{{ asset('storage/' . $blogpost->image) }}" alt="Blog Image" class="max-h-64 w-full object-cover rounded-lg">
+        </div>
+        @endif
       </div>
 
       <!-- Submit Button -->
@@ -83,7 +88,7 @@
           type="submit"
           class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 font-semibold transition ease-in-out duration-150"
         >
-          Update Blog
+          Publish Blog
         </button>
       </div>
     </form>

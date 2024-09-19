@@ -38,3 +38,5 @@ Route::post('store',[Postcontroller::class,'store'])->middleware('auth');
 Route::get('/blog/{id}', [Postcontroller::class, 'show'])->name('blog.show');
 Route::get('mypost',[Postcontroller::class,'mypost'])->middleware('auth');
 Route::get('delete/{id}',[Postcontroller::class,'destroy'])->middleware('auth');
+Route::get('edit/{id}',[Postcontroller::class,'edit'])->middleware('auth');
+Route::get('search',[Postcontroller::class,'search'])->middleware('auth');

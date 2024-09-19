@@ -32,8 +32,18 @@ public function destroy($id){
     return view('Blog.Mypost',compact('blogpost'));
 }
     
+public function edit($id){
+    $blogpost = blogpost::find($id);
+    return view('Blog.Edit',compact('blogpost'));
 
 
+}
+
+public function search(Request $request){
+    $search = $request->search;
+    $blogpost = blogpost::where('title',$search)->get();
+    return view('Blog.Blogpost',compact('blogpost'));
+}
 
 
 
