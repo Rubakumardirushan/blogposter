@@ -18,7 +18,7 @@
       </a>
     </div>
 
-    <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Create Blog</h1>
+    <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Update Blog</h1>
     
     @if (session('status'))
     <div class="bg-green-100 text-green-700 px-4 py-2 rounded-lg mb-6">
@@ -26,7 +26,7 @@
     </div>
     @endif
 
-    <form class="bg-white p-8 rounded-lg shadow-lg" action="store" method="POST" enctype="multipart/form-data">
+    <form class="bg-white p-8 rounded-lg shadow-lg" action="{{$blogpost->id}}" method="POST" enctype="multipart/form-data">
       @csrf
 
       <!-- Blog Title -->
@@ -88,7 +88,7 @@
           type="submit"
           class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 font-semibold transition ease-in-out duration-150"
         >
-          Publish Blog
+          Update Blog
         </button>
       </div>
     </form>

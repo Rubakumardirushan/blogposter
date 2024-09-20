@@ -40,3 +40,4 @@ Route::get('mypost',[Postcontroller::class,'mypost'])->middleware('auth');
 Route::get('delete/{id}',[Postcontroller::class,'destroy'])->middleware('auth');
 Route::get('edit/{id}',[Postcontroller::class,'edit'])->middleware('auth');
 Route::get('search',[Postcontroller::class,'search'])->middleware('auth');
+Route::post('edit/{id}',[Postcontroller::class,'update'])->middleware('auth');

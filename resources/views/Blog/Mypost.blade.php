@@ -43,7 +43,7 @@
             
                     <a href="/blog/{{ $post->id }}" class="text-blue-600 hover:underline">Read more</a>
                     <a href="/delete/{{$post->id}}" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition">delete</a>
-                    <a href="/edit/{{$post->id}}" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">update</a>
+                    <a href="/edit/{{$post->id}}" class="bg-blue-700 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">update</a>
             </div>
             @endforeach
         </div>
